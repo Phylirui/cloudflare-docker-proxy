@@ -1,4 +1,4 @@
-addEventListener("fetch", (event) => {
+addEventListener("fetch"， (event) => {
   event.passThroughOnException();
   event.respondWith(handleRequest(event.request));
 });
@@ -6,18 +6,13 @@ addEventListener("fetch", (event) => {
 const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
-  // production
-  ["docker." + CUSTOM_DOMAIN]: dockerHub,
-  ["quay." + CUSTOM_DOMAIN]: "https://quay.io",
-  ["gcr." + CUSTOM_DOMAIN]: "https://gcr.io",
-  ["k8s-gcr." + CUSTOM_DOMAIN]: "https://k8s.gcr.io",
-  ["k8s." + CUSTOM_DOMAIN]: "https://registry.k8s.io",
-  ["ghcr." + CUSTOM_DOMAIN]: "https://ghcr.io",
-  ["cloudsmith." + CUSTOM_DOMAIN]: "https://docker.cloudsmith.io",
-  ["ecr." + CUSTOM_DOMAIN]: "https://public.ecr.aws",
-
-  // staging
-  ["docker-staging." + CUSTOM_DOMAIN]: dockerHub,
+  "docker.ruili.site": "https://registry-1.docker.io",
+  "quay.ruili.site": "https://quay.io"，
+  "gcr.ruili.site": "https://gcr.io"，
+  "k8s-gcr.ruili.site": "https://k8s.gcr.io"，
+  "k8s.ruili.site": "https://registry.k8s.io"，
+  "ghcr.ruili.site": "https://ghcr.io"，
+  "cloudsmith.ruili.site": "https://docker.cloudsmith.io"，
 };
 
 function routeByHosts(host) {
